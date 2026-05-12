@@ -9,9 +9,9 @@ import ProcessStep from '../components/ProcessStep.astro';
 const base = import.meta.env.BASE_URL;
 
 const collections = [
-  { title: 'One-of-a-Kind Pieces', description: 'Unique preserved moss sculptures and wall art — no two are alike.', href: `${base}portfolio/`, placeholderClass: 'placeholder-forest' },
-  { title: 'Framed Moss Art', description: 'Living textures preserved in handcrafted frames for your walls.', href: `${base}portfolio/`, placeholderClass: 'placeholder-moss' },
-  { title: 'Centerpieces', description: 'Natural tablescapes featuring moss, bark, pinecones, and mushrooms.', href: `${base}portfolio/`, placeholderClass: 'placeholder-bark' },
+  { title: 'One-of-a-Kind Pieces', description: 'Unique preserved moss sculptures and wall art — no two are alike.', href: `${base}gallery/`, placeholderClass: 'placeholder-forest' },
+  { title: 'Framed Moss Art', description: 'Living textures preserved in handcrafted frames for your walls.', href: `${base}gallery/`, placeholderClass: 'placeholder-moss' },
+  { title: 'Centerpieces', description: 'Natural tablescapes featuring moss, bark, pinecones, and mushrooms.', href: `${base}gallery/`, placeholderClass: 'placeholder-bark' },
   { title: 'Custom Work', description: 'Commission a bespoke piece tailored to your space and vision.', href: `${base}custom/`, placeholderClass: 'placeholder-mushroom' },
 ];
 
@@ -46,7 +46,7 @@ const processSteps = [
           <h1>Everlasting moss art for woodland&#8209;inspired spaces</h1>
           <p class="hero-sub">Handmade preserved moss decor using forest textures, bark, mushrooms, pinecones, and natural forms.</p>
           <div class="hero-ctas">
-            <a href={`${base}portfolio/`} class="btn btn-primary">View Portfolio</a>
+            <a href={`${base}gallery/`} class="btn btn-primary">View Gallery</a>
             <a href={`${base}custom/`} class="btn btn-secondary">Request a Custom Piece</a>
           </div>
         </div>
@@ -87,7 +87,7 @@ const processSteps = [
         <p class="section-subtitle">A selection of preserved moss pieces, wall art, and natural arrangements</p>
         <GalleryGrid items={galleryItems} />
         <div class="gallery-cta">
-          <a href={`${base}portfolio/`} class="btn btn-outline">View Full Portfolio</a>
+          <a href={`${base}gallery/`} class="btn btn-outline">View Full Gallery</a>
         </div>
       </div>
     </section>
