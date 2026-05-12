@@ -3,23 +3,34 @@ const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: `${base}`, label: 'Home' },
-  { href: `${base}about/`, label: 'About' },
-  { href: `${base}blog/`, label: 'Blog' },
+  { href: `${base}portfolio/`, label: 'Portfolio' },
+  { href: `${base}custom/`, label: 'Custom Work' },
+  { href: `${base}about/`, label: 'About the Artist' },
+  { href: 'https://www.etsy.com/shop/PLACEHOLDER', label: 'Shop', external: true },
 ];
 ---
 
 <header>
   <nav>
-    <a href={base} class="logo">Website1</a>
-    <ul>
+    <a href={base} class="logo">
+      <span class="logo-text">AuroraMOSS</span>
+      <span class="logo-sub">designs</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="nav-links">
       {navLinks.map((link) => (
         <li>
           <a
             href={link.href}
             class={currentPath === link.href ? 'active' : ''}
+            {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             {link.label}
+            {link.external && <span class="external-icon" aria-hidden="true">&nearr;</span>}
           </a>
         </li>
       ))}
@@ -27,10 +38,22 @@ const navLinks = [
   </nav>
 </header>
 
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
+
 <style>
   header {
-    background: var(--bg-card);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(250, 248, 244, 0.95);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -38,7 +61,7 @@ const navLinks = [
   }
 
   nav {
-    max-width: 960px;
+    max-width: var(--content-width);
     margin: 0 auto;
     padding: 1rem 1.5rem;
     display: flex;
@@ -47,32 +70,106 @@ const navLinks = [
   }
 
   .logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--text);
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    text-decoration: none;
   }
 
-  .logo:hover {
-    color: var(--accent-light);
+  .logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--forest);
+    letter-spacing: 0.02em;
   }
 
-  ul {
+  .logo-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+  }
+
+  .logo:hover .logo-text {
+    color: var(--moss);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--charcoal);
+    border-radius: 1px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: center;
   }
 
-  li a {
-    color: var(--text-muted);
-    font-size: 0.95rem;
+  .nav-links li a {
+    color: var(--stone);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     padding: 0.25rem 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1.5px solid transparent;
     transition: color 0.2s, border-color 0.2s;
   }
 
-  li a:hover,
-  li a.active {
-    color: var(--text);
-    border-bottom-color: var(--accent);
+  .nav-links li a:hover,
+  .nav-links li a.active {
+    color: var(--forest);
+    border-bottom-color: var(--moss);
+  }
+
+  .external-icon {
+    font-size: 0.75rem;
+    margin-left: 0.15rem;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(250, 248, 244, 0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+      gap: 1rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li a {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
   }
 </style>

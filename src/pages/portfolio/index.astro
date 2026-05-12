@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const allWork = [
+  { title: 'Moss Wall Panel — Emerald', placeholderClass: 'placeholder-moss', aspectRatio: '3/4' },
+  { title: 'Bark & Lichen Shadow Box', placeholderClass: 'placeholder-bark', aspectRatio: '4/5' },
+  { title: 'Forest Floor Arrangement', placeholderClass: 'placeholder-forest', aspectRatio: '1/1' },
+  { title: 'Mushroom & Moss Terrarium', placeholderClass: 'placeholder-mushroom', aspectRatio: '3/4' },
+  { title: 'Driftwood Moss Sculpture', placeholderClass: 'placeholder-birch', aspectRatio: '4/3' },
+  { title: 'Birch & Fern Centerpiece', placeholderClass: 'placeholder-moss', aspectRatio: '3/4' },
+  { title: 'Dark Forest Statement Panel', placeholderClass: 'placeholder-forest', aspectRatio: '4/5' },
+  { title: 'Pinecone & Bark Wreath', placeholderClass: 'placeholder-bark', aspectRatio: '1/1' },
+  { title: 'Stone & Moss Bowl', placeholderClass: 'placeholder-mushroom', aspectRatio: '3/4' },
+  { title: 'Coastal Driftwood Frame', placeholderClass: 'placeholder-birch', aspectRatio: '4/5' },
+  { title: 'Moss Orb Collection', placeholderClass: 'placeholder-moss', aspectRatio: '1/1' },
+  { title: 'Woodland Shelf Arrangement', placeholderClass: 'placeholder-forest', aspectRatio: '3/4' },
+  { title: 'Bark Tray with Lichen', placeholderClass: 'placeholder-bark', aspectRatio: '4/3' },
+  { title: 'Gothic Mushroom Display', placeholderClass: 'placeholder-mushroom', aspectRatio: '4/5' },
+  { title: 'Cedar & Moss Wall Piece', placeholderClass: 'placeholder-forest', aspectRatio: '3/4' },
+];
+---
+
+<Layout title="Portfolio — AuroraMOSS Designs">
+  <Header />
+  <main>
+
+    <section class="portfolio-hero placeholder-bark">
+      <div class="portfolio-hero-overlay">
+        <h1>Portfolio</h1>
+        <p>A gallery of preserved moss art, wall pieces, centerpieces, and natural arrangements</p>
+      </div>
+    </section>
+
+    <section class="portfolio-gallery">
+      <div class="container">
+        <GalleryGrid items={allWork} />
+      </div>
+    </section>
+
+    <section class="portfolio-cta">
+      <div class="container--narrow" style="text-align: center;">
+        <h2>Don't see what you're looking for?</h2>
+        <p>Every piece can be customized. Tell me about your space and I'll create something just for you.</p>
+        <a href={`${base}custom/`} class="btn btn-primary">Request a Custom Piece</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .portfolio-hero {
+    padding: 0;
+    min-height: 35vh;
+    display: flex;
+  }
+
+  .portfolio-hero-overlay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 30, 27, 0.45);
+    padding: 2rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .portfolio-hero-overlay h1 {
+    color: var(--birch);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .portfolio-hero-overlay p {
+    color: rgba(244, 239, 230, 0.8);
+    font-size: 1.1rem;
+    max-width: 480px;
+  }
+
+  .portfolio-gallery {
+    background: var(--bg);
+  }
+
+  .portfolio-cta {
+    background: var(--bg-alt);
+  }
+
+  .portfolio-cta h2 {
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-cta p {
+    color: var(--stone);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--birch);
+    border-color: var(--forest);
+  }
+
+  .btn-primary:hover {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: white;
+  }
+</style>

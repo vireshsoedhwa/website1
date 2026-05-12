@@ -2,77 +2,287 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="About | Website1">
+<Layout title="About the Artist — AuroraMOSS Designs">
   <Header />
   <main>
-    <h1>About</h1>
-    <p>
-      This is a sample Astro website scaffolded and ready to deploy on
-      <strong>GitHub Pages</strong>. It demonstrates how to structure an Astro
-      project with layouts, reusable components, and multiple pages.
-    </p>
 
-    <h2>Project Structure</h2>
-    <pre><code>src/
-├── components/
-│   ├── Card.astro
-│   ├── Footer.astro
-│   └── Header.astro
-├── layouts/
-│   └── Layout.astro
-└── pages/
-    ├── index.astro
-    ├── about.astro
-    └── blog/
-        └── index.astro</code></pre>
+    <!-- Hero Banner -->
+    <section class="about-hero placeholder-moss">
+      <div class="about-hero-overlay">
+        <h1>About the Artist</h1>
+      </div>
+    </section>
 
-    <h2>Getting Started</h2>
-    <p>Run the development server:</p>
-    <pre><code>npm run dev</code></pre>
-    <p>Build for production:</p>
-    <pre><code>npm run build</code></pre>
+    <!-- Bio -->
+    <section class="bio">
+      <div class="container--narrow">
+        <div class="bio-content">
+          <div class="bio-portrait placeholder-bark"></div>
+          <div class="bio-text">
+            <h2>The story behind AuroraMOSS</h2>
+            <p>
+              Based in Vancouver, British Columbia, AuroraMOSS Designs creates preserved moss wall art, centerpieces, and one-of-a-kind natural sculptures using materials gathered from the forests and coastlines of the Pacific Northwest.
+            </p>
+            <p>
+              Every piece begins with a walk through the woods — gathering moss, bark, pinecones, driftwood, mushrooms, and other natural textures. These materials are carefully preserved to maintain their colour and softness, then composed into artwork that brings the quiet beauty of the forest floor into homes and spaces.
+            </p>
+            <p>
+              What started as a deep love for the textures of the natural world has become a creative practice rooted in patience, presence, and a desire to share the calming energy of the forest with others.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values">
+      <div class="container">
+        <h2 class="section-title">Guiding Principles</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3>Handmade with care</h3>
+            <p>Every piece is created by hand — no mass production, no shortcuts. Each arrangement is a one-of-a-kind composition.</p>
+          </div>
+          <div class="value-card">
+            <h3>Rooted in nature</h3>
+            <p>Materials are responsibly gathered from the forests and shores of British Columbia, with deep respect for the natural environment.</p>
+          </div>
+          <div class="value-card">
+            <h3>Built to last</h3>
+            <p>Preserved moss and natural elements require no watering, no sunlight, and no maintenance — lasting beauty for years to come.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PNW Identity -->
+    <section class="pnw">
+      <div class="pnw-split">
+        <div class="pnw-image placeholder-forest"></div>
+        <div class="pnw-content">
+          <h2>Made in the Pacific Northwest</h2>
+          <p>
+            The misty forests, ocean-worn driftwood, and lush mossy landscapes of British Columbia are both workshop and inspiration. The Pacific Northwest's natural beauty — from ancient cedars to coastal stone — is woven into every piece.
+          </p>
+          <p>
+            Based in Vancouver, AuroraMOSS Designs ships across Canada and internationally through Etsy.
+          </p>
+          <a href="https://www.etsy.com/shop/PLACEHOLDER" class="pnw-link" target="_blank" rel="noopener noreferrer">Visit the Etsy Shop &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <div class="container--narrow" style="text-align: center;">
+        <h2>Let's create something together</h2>
+        <p>Have a vision for your space? I'd love to bring it to life with preserved moss and natural textures.</p>
+        <a href={`${base}custom/`} class="btn btn-primary">Request a Custom Piece</a>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
 
 <style>
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
+  /* About Hero */
+  .about-hero {
+    padding: 0;
+    min-height: 40vh;
+    display: flex;
   }
 
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
+  .about-hero-overlay {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 30, 27, 0.4);
+    padding: 2rem;
+  }
+
+  .about-hero-overlay h1 {
+    color: var(--birch);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Bio */
+  .bio {
+    background: var(--bg);
+  }
+
+  .bio-content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .bio-portrait {
+    aspect-ratio: 3 / 4;
+    border-radius: 6px;
+  }
+
+  .bio-text h2 {
     margin-bottom: 1rem;
   }
 
-  h2 {
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  p {
-    color: var(--text-muted);
-    line-height: 1.7;
+  .bio-text p {
+    color: var(--stone);
     margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
   }
 
-  pre {
+  @media (max-width: 700px) {
+    .bio-content {
+      grid-template-columns: 1fr;
+    }
+
+    .bio-portrait {
+      max-width: 220px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Values */
+  .values {
+    background: var(--bg-alt);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .value-card {
     background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem 1.25rem;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    padding: 2rem;
   }
 
-  code {
-    font-family: 'SF Mono', 'Fira Code', monospace;
+  .value-card h3 {
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+  }
+
+  .value-card p {
+    color: var(--stone);
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* PNW */
+  .pnw {
+    padding: 0;
+  }
+
+  .pnw-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+  }
+
+  .pnw-image {
+    min-height: 360px;
+  }
+
+  .pnw-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem;
+    background: var(--bg);
+  }
+
+  .pnw-content h2 {
+    margin-bottom: 1rem;
+  }
+
+  .pnw-content p {
+    color: var(--stone);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .pnw-link {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--forest);
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  .pnw-link:hover {
+    color: var(--moss);
+  }
+
+  @media (max-width: 768px) {
+    .pnw-split {
+      grid-template-columns: 1fr;
+    }
+
+    .pnw-content {
+      padding: 3rem 1.5rem;
+    }
+  }
+
+  /* CTA */
+  .about-cta {
+    background: var(--bg-alt);
+  }
+
+  .about-cta h2 {
+    margin-bottom: 1rem;
+  }
+
+  .about-cta p {
+    color: var(--stone);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--birch);
+    border-color: var(--forest);
+  }
+
+  .btn-primary:hover {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: white;
   }
 </style>

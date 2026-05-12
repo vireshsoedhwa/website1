@@ -1,61 +1,15 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Card from '../../components/Card.astro';
-
 const base = import.meta.env.BASE_URL;
-
-const posts = [
-  {
-    title: 'First Post',
-    body: 'This is a placeholder blog post. Replace it with your own content written in Astro or Markdown.',
-    slug: 'first-post',
-  },
-  {
-    title: 'Getting Started with Astro',
-    body: 'Learn the basics of building fast, content-focused websites with the Astro framework.',
-    slug: 'getting-started',
-  },
-];
 ---
 
-<Layout title="Blog | Website1">
-  <Header />
-  <main>
-    <h1>Blog</h1>
-    <p class="subtitle">Latest posts and updates.</p>
-
-    <section class="posts">
-      {posts.map((post) => (
-        <Card title={post.title} body={post.body} />
-      ))}
-    </section>
-  </main>
-  <Footer />
-</Layout>
-
-<style>
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-  }
-
-  .subtitle {
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
-
-  .posts {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-</style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0;url=${base}portfolio/`} />
+    <link rel="canonical" href={`${base}portfolio/`} />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={`${base}portfolio/`}>Portfolio</a>…</p>
+  </body>
+</html>

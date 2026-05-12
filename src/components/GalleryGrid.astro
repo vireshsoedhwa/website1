@@ -1,0 +1,84 @@
+---
+interface GalleryItem {
+  title: string;
+  placeholderClass: string;
+  aspectRatio?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="gallery-grid">
+  {items.map((item) => (
+    <div class="gallery-item" style={item.aspectRatio ? `--aspect: ${item.aspectRatio}` : ''}>
+      <div class:list={['gallery-image', item.placeholderClass]}>
+        <div class="gallery-hover">
+          <span class="gallery-title">{item.title}</span>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .gallery-grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .gallery-image {
+    aspect-ratio: var(--aspect, 3 / 4);
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.02);
+  }
+
+  .gallery-hover {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(30, 30, 27, 0.5) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-hover {
+    opacity: 1;
+  }
+
+  .gallery-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .gallery-grid {
+      columns: 1;
+    }
+  }
+</style>

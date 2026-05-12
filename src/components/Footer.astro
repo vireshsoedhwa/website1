@@ -1,18 +1,144 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer>
-  <p>&copy; {year} Website1. Built with <a href="https://astro.build" target="_blank">Astro</a>.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href={base} class="footer-logo">
+        <span class="footer-logo-text">AuroraMOSS</span>
+        <span class="footer-logo-sub">designs</span>
+      </a>
+      <p class="footer-tagline">Handmade in Vancouver, British Columbia</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href={`${base}portfolio/`}>Portfolio</a></li>
+          <li><a href={`${base}custom/`}>Custom Work</a></li>
+          <li><a href={`${base}about/`}>About the Artist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.etsy.com/shop/PLACEHOLDER" target="_blank" rel="noopener noreferrer">Etsy Shop</a></li>
+          <li><a href="https://instagram.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://pinterest.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {year} AuroraMOSS Designs. All rights reserved.</p>
+  </div>
 </footer>
 
 <style>
   footer {
     margin-top: auto;
-    padding: 2rem 1.5rem;
+    background: var(--charcoal);
+    color: var(--birch-dark);
+  }
+
+  .footer-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    max-width: 280px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--birch);
+  }
+
+  .footer-logo-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-tagline {
+    color: var(--stone);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--birch);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-col a {
+    color: var(--stone);
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: var(--moss-light);
+  }
+
+  .footer-bottom {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem;
+    border-top: 1px solid rgba(244, 239, 230, 0.08);
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--stone);
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.875rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      gap: 2.5rem;
+    }
   }
 </style>

@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Custom Work — AuroraMOSS Designs">
+  <Header />
+  <main>
+
+    <section class="custom-hero placeholder-mushroom">
+      <div class="custom-hero-overlay">
+        <h1>Custom Work</h1>
+        <p>Commission a one-of-a-kind piece designed for your space</p>
+      </div>
+    </section>
+
+    <section class="custom-intro">
+      <div class="container--narrow">
+        <h2>How it works</h2>
+        <p>
+          Every custom piece starts with a conversation. Tell me about your space, the mood you'd like to create, and any materials that inspire you — moss, bark, mushrooms, driftwood, pinecones, or something else entirely. From there, I'll design and craft a piece that's uniquely yours.
+        </p>
+      </div>
+    </section>
+
+    <section class="custom-steps">
+      <div class="container">
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Share your vision</h3>
+            <p>Describe your space, preferred size, colours, and any natural materials you love. Photos of your room are helpful too.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Design & proposal</h3>
+            <p>I'll create a concept based on your input, including materials, sizing, and pricing. We'll refine it together until it feels right.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Crafting</h3>
+            <p>Once approved, I'll hand-craft your piece using preserved moss and natural materials. I'll share progress photos along the way.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h3>Delivery</h3>
+            <p>Your finished piece is carefully packaged and shipped to you — ready to bring a piece of the forest into your home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="custom-pricing">
+      <div class="container--narrow">
+        <h2>Pricing guidance</h2>
+        <p>Custom pieces are priced based on size, complexity, and materials. Here's a general guide:</p>
+        <div class="pricing-table">
+          <div class="pricing-row">
+            <span class="pricing-label">Small pieces (6"–10")</span>
+            <span class="pricing-range">Starting from $45</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Medium wall art (12"–18")</span>
+            <span class="pricing-range">Starting from $85</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Large statement pieces (20"+)</span>
+            <span class="pricing-range">Starting from $150</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Centerpieces & arrangements</span>
+            <span class="pricing-range">Starting from $55</span>
+          </div>
+        </div>
+        <p class="pricing-note">Final pricing depends on materials used and design complexity. I'll always provide a detailed quote before starting.</p>
+      </div>
+    </section>
+
+    <section class="custom-contact">
+      <div class="container--narrow">
+        <div class="contact-card">
+          <h2>Start your custom order</h2>
+          <p>Send a message describing what you have in mind. I'll get back to you within 1–2 business days.</p>
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="details">Tell me about your piece</label>
+              <textarea id="details" name="details" rows="5" placeholder="Describe the size, style, materials, and where it will live..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Inquiry</button>
+          </form>
+          <p class="form-note">You can also reach me through <a href="https://www.etsy.com/shop/PLACEHOLDER" target="_blank" rel="noopener noreferrer">Etsy messages</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero */
+  .custom-hero {
+    padding: 0;
+    min-height: 35vh;
+    display: flex;
+  }
+
+  .custom-hero-overlay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 30, 27, 0.45);
+    padding: 2rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .custom-hero-overlay h1 {
+    color: var(--birch);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .custom-hero-overlay p {
+    color: rgba(244, 239, 230, 0.8);
+    font-size: 1.1rem;
+  }
+
+  /* Intro */
+  .custom-intro {
+    background: var(--bg);
+  }
+
+  .custom-intro h2 {
+    margin-bottom: 1rem;
+  }
+
+  .custom-intro p {
+    color: var(--stone);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* Steps */
+  .custom-steps {
+    background: var(--bg-alt);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+  }
+
+  .step-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--moss);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card h3 {
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .step-card p {
+    color: var(--stone);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 800px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Pricing */
+  .custom-pricing {
+    background: var(--bg);
+  }
+
+  .custom-pricing h2 {
+    margin-bottom: 1rem;
+  }
+
+  .custom-pricing > div > p {
+    color: var(--stone);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .pricing-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-label {
+    font-size: 1rem;
+    color: var(--charcoal);
+  }
+
+  .pricing-range {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--forest);
+  }
+
+  .pricing-note {
+    font-size: 0.88rem;
+    color: var(--stone);
+    font-style: italic;
+  }
+
+  /* Contact */
+  .custom-contact {
+    background: var(--bg-alt);
+  }
+
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3rem;
+  }
+
+  .contact-card h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-card > p {
+    color: var(--stone);
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form-group label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--moss);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--birch);
+    border-color: var(--forest);
+    align-self: flex-start;
+  }
+
+  .btn-primary:hover {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: white;
+  }
+
+  .form-note {
+    margin-top: 1.5rem;
+    font-size: 0.88rem;
+    color: var(--stone);
+  }
+
+  @media (max-width: 600px) {
+    .contact-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

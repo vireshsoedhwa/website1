@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  placeholderClass?: string;
+}
+
+const { title, description, href, placeholderClass = 'placeholder-moss' } = Astro.props;
+---
+
+<a href={href} class="collection-card">
+  <div class:list={['card-image', placeholderClass]}>
+    <span class="card-overlay">{title}</span>
+  </div>
+  <div class="card-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</a>
+
+<style>
+  .collection-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .collection-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(30, 30, 27, 0.08);
+  }
+
+  .card-image {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+    background: rgba(30, 30, 27, 0.15);
+    transition: background 0.3s ease;
+  }
+
+  .collection-card:hover .card-overlay {
+    background: rgba(30, 30, 27, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    color: var(--forest);
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+</style>
