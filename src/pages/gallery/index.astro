@@ -7,21 +7,13 @@ import GalleryGrid from '../../components/GalleryGrid.astro';
 const base = import.meta.env.BASE_URL;
 
 const allWork = [
-  { title: 'Moss Wall Panel — Emerald', placeholderClass: 'placeholder-moss', aspectRatio: '3/4' },
-  { title: 'Bark & Lichen Shadow Box', placeholderClass: 'placeholder-bark', aspectRatio: '4/5' },
-  { title: 'Forest Floor Arrangement', placeholderClass: 'placeholder-forest', aspectRatio: '1/1' },
-  { title: 'Mushroom & Moss Terrarium', placeholderClass: 'placeholder-mushroom', aspectRatio: '3/4' },
-  { title: 'Driftwood Moss Sculpture', placeholderClass: 'placeholder-birch', aspectRatio: '4/3' },
-  { title: 'Birch & Fern Centerpiece', placeholderClass: 'placeholder-moss', aspectRatio: '3/4' },
-  { title: 'Dark Forest Statement Panel', placeholderClass: 'placeholder-forest', aspectRatio: '4/5' },
-  { title: 'Pinecone & Bark Wreath', placeholderClass: 'placeholder-bark', aspectRatio: '1/1' },
-  { title: 'Stone & Moss Bowl', placeholderClass: 'placeholder-mushroom', aspectRatio: '3/4' },
-  { title: 'Coastal Driftwood Frame', placeholderClass: 'placeholder-birch', aspectRatio: '4/5' },
-  { title: 'Moss Orb Collection', placeholderClass: 'placeholder-moss', aspectRatio: '1/1' },
-  { title: 'Woodland Shelf Arrangement', placeholderClass: 'placeholder-forest', aspectRatio: '3/4' },
-  { title: 'Bark Tray with Lichen', placeholderClass: 'placeholder-bark', aspectRatio: '4/3' },
-  { title: 'Gothic Mushroom Display', placeholderClass: 'placeholder-mushroom', aspectRatio: '4/5' },
-  { title: 'Cedar & Moss Wall Piece', placeholderClass: 'placeholder-forest', aspectRatio: '3/4' },
+  { title: 'Preserved Moss Art', image: `${base}images/il_1588xN.6169735697_31xf.webp`, aspectRatio: '4/5' },
+  { title: 'Moss Wall Piece', image: `${base}images/il_1588xN.6271646263_eov4.webp`, aspectRatio: '3/4' },
+  { title: 'Natural Moss Arrangement', image: `${base}images/il_1588xN.7645959604_enok.webp`, aspectRatio: '4/5' },
+  { title: 'Woodland Moss Design', image: `${base}images/il_1588xN.7735679231_q5it.webp`, aspectRatio: '3/4' },
+  { title: 'Bark & Moss Piece', image: `${base}images/il_1588xN.7744479968_n87u.webp`, aspectRatio: '4/5' },
+  { title: 'Forest Texture Art', image: `${base}images/il_1588xN.7763511073_apbx.webp`, aspectRatio: '3/4' },
+  { title: 'Moss & Natural Forms', image: `${base}images/il_1588xN.7865359477_9713.webp`, aspectRatio: '4/5' },
 ];
 ---
 
@@ -29,7 +21,7 @@ const allWork = [
   <Header />
   <main>
 
-    <section class="gallery-hero placeholder-bark">
+    <section class="gallery-hero" style={`background-image: url('${base}images/il_1588xN.7744479968_n87u.webp'); background-size: cover; background-position: center;`}>
       <div class="gallery-hero-overlay">
         <h1>Gallery</h1>
         <p>A gallery of preserved moss art, wall pieces, centerpieces, and natural arrangements</p>
